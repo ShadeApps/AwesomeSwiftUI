@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		409E2A63238EC20A00E92AAA /* Types.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409E2A5F238EC20A00E92AAA /* Types.graphql.swift */; };
+		409E2A64238EC20A00E92AAA /* TransactionList.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409E2A60238EC20A00E92AAA /* TransactionList.graphql.swift */; };
+		409E2A65238EC20A00E92AAA /* DaySectionWidgetFragment.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409E2A61238EC20A00E92AAA /* DaySectionWidgetFragment.graphql.swift */; };
+		409E2A66238EC20A00E92AAA /* TransactionFragment.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409E2A62238EC20A00E92AAA /* TransactionFragment.graphql.swift */; };
 		40CBE3A2238E96630040A05D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CBE3A1238E96630040A05D /* AppDelegate.swift */; };
 		40CBE3A4238E96630040A05D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CBE3A3238E96630040A05D /* SceneDelegate.swift */; };
 		40CBE3A6238E96630040A05D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CBE3A5238E96630040A05D /* ContentView.swift */; };
 		40CBE3A8238E96660040A05D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40CBE3A7238E96660040A05D /* Assets.xcassets */; };
-		40CBE3AB238E96660040A05D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40CBE3AA238E96660040A05D /* Preview Assets.xcassets */; };
 		40CBE3AE238E96660040A05D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40CBE3AC238E96660040A05D /* LaunchScreen.storyboard */; };
 		40CBE3B9238E96660040A05D /* AwesomeSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CBE3B8238E96660040A05D /* AwesomeSwiftUITests.swift */; };
 		440BC6BDA1360C3D33D1BE09 /* Pods_AwesomeSwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC9719FCE1AF30BB8966FEE0 /* Pods_AwesomeSwiftUITests.framework */; };
@@ -29,12 +32,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		409E2A58238EABF400E92AAA /* schema.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
+		409E2A5A238EBDFB00E92AAA /* TransactionFragment.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = TransactionFragment.graphql; sourceTree = "<group>"; };
+		409E2A5B238EBDFB00E92AAA /* DaySectionWidgetFragment.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = DaySectionWidgetFragment.graphql; sourceTree = "<group>"; };
+		409E2A5C238EBDFB00E92AAA /* TransactionList.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = TransactionList.graphql; sourceTree = "<group>"; };
+		409E2A5F238EC20A00E92AAA /* Types.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Types.graphql.swift; sourceTree = "<group>"; };
+		409E2A60238EC20A00E92AAA /* TransactionList.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionList.graphql.swift; sourceTree = "<group>"; };
+		409E2A61238EC20A00E92AAA /* DaySectionWidgetFragment.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DaySectionWidgetFragment.graphql.swift; sourceTree = "<group>"; };
+		409E2A62238EC20A00E92AAA /* TransactionFragment.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionFragment.graphql.swift; sourceTree = "<group>"; };
 		40CBE39E238E96630040A05D /* AwesomeSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AwesomeSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40CBE3A1238E96630040A05D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40CBE3A3238E96630040A05D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		40CBE3A5238E96630040A05D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		40CBE3A7238E96660040A05D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		40CBE3AA238E96660040A05D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		40CBE3AD238E96660040A05D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40CBE3AF238E96660040A05D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40CBE3B4238E96660040A05D /* AwesomeSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AwesomeSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +78,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		409E2A59238EBD7800E92AAA /* Apollo */ = {
+			isa = PBXGroup;
+			children = (
+				409E2A5E238EC1D700E92AAA /* Sources */,
+				409E2A61238EC20A00E92AAA /* DaySectionWidgetFragment.graphql.swift */,
+				409E2A62238EC20A00E92AAA /* TransactionFragment.graphql.swift */,
+				409E2A60238EC20A00E92AAA /* TransactionList.graphql.swift */,
+				409E2A5F238EC20A00E92AAA /* Types.graphql.swift */,
+			);
+			path = Apollo;
+			sourceTree = "<group>";
+		};
+		409E2A5E238EC1D700E92AAA /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				409E2A5B238EBDFB00E92AAA /* DaySectionWidgetFragment.graphql */,
+				409E2A5A238EBDFB00E92AAA /* TransactionFragment.graphql */,
+				409E2A5C238EBDFB00E92AAA /* TransactionList.graphql */,
+				409E2A58238EABF400E92AAA /* schema.json */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
 		40CBE395238E96630040A05D = {
 			isa = PBXGroup;
 			children = (
@@ -94,20 +127,12 @@
 				40CBE3A1238E96630040A05D /* AppDelegate.swift */,
 				40CBE3A3238E96630040A05D /* SceneDelegate.swift */,
 				40CBE3A5238E96630040A05D /* ContentView.swift */,
+				409E2A59238EBD7800E92AAA /* Apollo */,
 				40CBE3A7238E96660040A05D /* Assets.xcassets */,
 				40CBE3AC238E96660040A05D /* LaunchScreen.storyboard */,
 				40CBE3AF238E96660040A05D /* Info.plist */,
-				40CBE3A9238E96660040A05D /* Preview Content */,
 			);
 			path = AwesomeSwiftUI;
-			sourceTree = "<group>";
-		};
-		40CBE3A9238E96660040A05D /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				40CBE3AA238E96660040A05D /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		40CBE3B7238E96660040A05D /* AwesomeSwiftUITests */ = {
@@ -148,6 +173,7 @@
 			buildPhases = (
 				6FF08CF4A1892292AF35E24E /* [CP] Check Pods Manifest.lock */,
 				40CBE39A238E96630040A05D /* Sources */,
+				409E2A5D238EBE0A00E92AAA /* Apollo CodeGen */,
 				40CBE39B238E96630040A05D /* Frameworks */,
 				40CBE39C238E96630040A05D /* Resources */,
 				2ACF2AF045744FD8571CD4B9 /* [CP] Embed Pods Frameworks */,
@@ -225,7 +251,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				40CBE3AE238E96660040A05D /* LaunchScreen.storyboard in Resources */,
-				40CBE3AB238E96660040A05D /* Preview Assets.xcassets in Resources */,
 				40CBE3A8238E96660040A05D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,6 +304,25 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		409E2A5D238EBE0A00E92AAA /* Apollo CodeGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/YourTarget/**/*.graphql",
+			);
+			name = "Apollo CodeGen";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "SCRIPT_PATH=\"${PODS_ROOT}/Apollo/scripts\"\ncd \"${SRCROOT}/${TARGET_NAME}\"\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/*.graphql --localSchemaFile=\"Apollo/Sources/schema.json\" Apollo\n";
+		};
 		6FF08CF4A1892292AF35E24E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -325,7 +369,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				409E2A63238EC20A00E92AAA /* Types.graphql.swift in Sources */,
 				40CBE3A2238E96630040A05D /* AppDelegate.swift in Sources */,
+				409E2A66238EC20A00E92AAA /* TransactionFragment.graphql.swift in Sources */,
+				409E2A64238EC20A00E92AAA /* TransactionList.graphql.swift in Sources */,
+				409E2A65238EC20A00E92AAA /* DaySectionWidgetFragment.graphql.swift in Sources */,
 				40CBE3A4238E96630040A05D /* SceneDelegate.swift in Sources */,
 				40CBE3A6238E96630040A05D /* ContentView.swift in Sources */,
 			);
@@ -481,7 +529,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"AwesomeSwiftUI/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = AwesomeSwiftUI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -502,7 +549,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"AwesomeSwiftUI/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = AwesomeSwiftUI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

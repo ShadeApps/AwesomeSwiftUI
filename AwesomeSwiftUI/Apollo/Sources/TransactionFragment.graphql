@@ -1,0 +1,14 @@
+fragment TransactionFragment on TransactionWidget {
+  transaction {
+    id
+    title
+    type
+    amount {
+      value
+      currencyCode
+    }
+  }
+  image {
+    iconName
+  }
+}
