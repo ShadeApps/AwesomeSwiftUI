@@ -9,11 +9,11 @@
 import Foundation
 
 struct TransactionDay {
-    //TransactionDay proxy model is necessary because DaySectionWidget does NOT contain TransactionWidget inside itself
-    //Otherwise, we would just use DaySectionWidget with a collection of TransactionWidget inside it
+    //TransactionDay proxy model is necessary because DaySection does NOT contain Transaction inside itself
+    //Otherwise, we would just use DaySection with a collection of Transaction objects inside
     
     var date: String?
-    var transactions: [TransactionFragment]?
-    var amount: DaySectionWidgetFragment.Amount?
+    var transactions: [Transaction]?
+    var amount: DaySection.AmountObject?
     
 }

@@ -3,11 +3,11 @@
 import Apollo
 import Foundation
 
-public struct AmountFragment: GraphQLFragment {
+public struct Amount: GraphQLFragment {
   /// The raw GraphQL definition of this fragment.
   public static let fragmentDefinition =
     """
-    fragment AmountFragment on Money {
+    fragment Amount on Money {
       __typename
       value
       currencyCode

@@ -1,6 +1,0 @@
-fragment DaySectionWidgetFragment on DaySectionWidget {
-  date
-  amount {
-    ...AmountFragment
-  }
-}

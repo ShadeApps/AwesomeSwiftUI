@@ -3,20 +3,20 @@
 import Apollo
 import Foundation
 
-public struct TransactionFragment: GraphQLFragment {
+public struct Transaction: GraphQLFragment {
   /// The raw GraphQL definition of this fragment.
   public static let fragmentDefinition =
     """
-    fragment TransactionFragment on TransactionWidget {
+    fragment Transaction on TransactionWidget {
       __typename
-      transaction {
+      transactionObject: transaction {
         __typename
         id
         title
         type
-        amount {
+        amountObject: amount {
           __typename
-          ...AmountFragment
+          ...Amount
         }
       }
       image {
@@ -30,7 +30,7 @@ public struct TransactionFragment: GraphQLFragment {
 
   public static let selections: [GraphQLSelection] = [
     GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-    GraphQLField("transaction", type: .nonNull(.object(Transaction.selections))),
+    GraphQLField("transaction", alias: "transactionObject", type: .nonNull(.object(TransactionObject.selections))),
     GraphQLField("image", type: .object(Image.selections)),
   ]
 
@@ -40,8 +40,8 @@ public struct TransactionFragment: GraphQLFragment {
     self.resultMap = unsafeResultMap
   }
 
-  public init(transaction: Transaction, image: Image? = nil) {
-    self.init(unsafeResultMap: ["__typename": "TransactionWidget", "transaction": transaction.resultMap, "image": image.flatMap { (value: Image) -> ResultMap in value.resultMap }])
+  public init(transactionObject: TransactionObject, image: Image? = nil) {
+    self.init(unsafeResultMap: ["__typename": "TransactionWidget", "transactionObject": transactionObject.resultMap, "image": image.flatMap { (value: Image) -> ResultMap in value.resultMap }])
   }
 
   public var __typename: String {
@@ -53,12 +53,12 @@ public struct TransactionFragment: GraphQLFragment {
     }
   }
 
-  public var transaction: Transaction {
+  public var transactionObject: TransactionObject {
     get {
-      return Transaction(unsafeResultMap: resultMap["transaction"]! as! ResultMap)
+      return TransactionObject(unsafeResultMap: resultMap["transactionObject"]! as! ResultMap)
     }
     set {
-      resultMap.updateValue(newValue.resultMap, forKey: "transaction")
+      resultMap.updateValue(newValue.resultMap, forKey: "transactionObject")
     }
   }
 
@@ -71,7 +71,7 @@ public struct TransactionFragment: GraphQLFragment {
     }
   }
 
-  public struct Transaction: GraphQLSelectionSet {
+  public struct TransactionObject: GraphQLSelectionSet {
     public static let possibleTypes = ["Transaction"]
 
     public static let selections: [GraphQLSelection] = [
@@ -79,7 +79,7 @@ public struct TransactionFragment: GraphQLFragment {
       GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
       GraphQLField("title", type: .nonNull(.scalar(String.self))),
       GraphQLField("type", type: .nonNull(.scalar(TransactionType.self))),
-      GraphQLField("amount", type: .nonNull(.object(Amount.selections))),
+      GraphQLField("amount", alias: "amountObject", type: .nonNull(.object(AmountObject.selections))),
     ]
 
     public private(set) var resultMap: ResultMap
@@ -88,8 +88,8 @@ public struct TransactionFragment: GraphQLFragment {
       self.resultMap = unsafeResultMap
     }
 
-    public init(id: GraphQLID, title: String, type: TransactionType, amount: Amount) {
-      self.init(unsafeResultMap: ["__typename": "Transaction", "id": id, "title": title, "type": type, "amount": amount.resultMap])
+    public init(id: GraphQLID, title: String, type: TransactionType, amountObject: AmountObject) {
+      self.init(unsafeResultMap: ["__typename": "Transaction", "id": id, "title": title, "type": type, "amountObject": amountObject.resultMap])
     }
 
     public var __typename: String {
@@ -128,21 +128,21 @@ public struct TransactionFragment: GraphQLFragment {
       }
     }
 
-    public var amount: Amount {
+    public var amountObject: AmountObject {
       get {
-        return Amount(unsafeResultMap: resultMap["amount"]! as! ResultMap)
+        return AmountObject(unsafeResultMap: resultMap["amountObject"]! as! ResultMap)
       }
       set {
-        resultMap.updateValue(newValue.resultMap, forKey: "amount")
+        resultMap.updateValue(newValue.resultMap, forKey: "amountObject")
       }
     }
 
-    public struct Amount: GraphQLSelectionSet {
+    public struct AmountObject: GraphQLSelectionSet {
       public static let possibleTypes = ["Money"]
 
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-        GraphQLFragmentSpread(AmountFragment.self),
+        GraphQLFragmentSpread(Amount.self),
       ]
 
       public private(set) var resultMap: ResultMap
@@ -180,9 +180,9 @@ public struct TransactionFragment: GraphQLFragment {
           self.resultMap = unsafeResultMap
         }
 
-        public var amountFragment: AmountFragment {
+        public var amount: Amount {
           get {
-            return AmountFragment(unsafeResultMap: resultMap)
+            return Amount(unsafeResultMap: resultMap)
           }
           set {
             resultMap += newValue.resultMap

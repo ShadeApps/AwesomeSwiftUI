@@ -1,0 +1,4 @@
+fragment Amount on Money {
+  value
+  currencyCode
+}

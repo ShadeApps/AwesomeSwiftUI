@@ -3,16 +3,16 @@
 import Apollo
 import Foundation
 
-public struct DaySectionWidgetFragment: GraphQLFragment {
+public struct DaySection: GraphQLFragment {
   /// The raw GraphQL definition of this fragment.
   public static let fragmentDefinition =
     """
-    fragment DaySectionWidgetFragment on DaySectionWidget {
+    fragment DaySection on DaySectionWidget {
       __typename
       date
-      amount {
+      amountObject: amount {
         __typename
-        ...AmountFragment
+        ...Amount
       }
     }
     """
@@ -22,7 +22,7 @@ public struct DaySectionWidgetFragment: GraphQLFragment {
   public static let selections: [GraphQLSelection] = [
     GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
     GraphQLField("date", type: .nonNull(.scalar(String.self))),
-    GraphQLField("amount", type: .nonNull(.object(Amount.selections))),
+    GraphQLField("amount", alias: "amountObject", type: .nonNull(.object(AmountObject.selections))),
   ]
 
   public private(set) var resultMap: ResultMap
@@ -31,8 +31,8 @@ public struct DaySectionWidgetFragment: GraphQLFragment {
     self.resultMap = unsafeResultMap
   }
 
-  public init(date: String, amount: Amount) {
-    self.init(unsafeResultMap: ["__typename": "DaySectionWidget", "date": date, "amount": amount.resultMap])
+  public init(date: String, amountObject: AmountObject) {
+    self.init(unsafeResultMap: ["__typename": "DaySectionWidget", "date": date, "amountObject": amountObject.resultMap])
   }
 
   public var __typename: String {
@@ -53,21 +53,21 @@ public struct DaySectionWidgetFragment: GraphQLFragment {
     }
   }
 
-  public var amount: Amount {
+  public var amountObject: AmountObject {
     get {
-      return Amount(unsafeResultMap: resultMap["amount"]! as! ResultMap)
+      return AmountObject(unsafeResultMap: resultMap["amountObject"]! as! ResultMap)
     }
     set {
-      resultMap.updateValue(newValue.resultMap, forKey: "amount")
+      resultMap.updateValue(newValue.resultMap, forKey: "amountObject")
     }
   }
 
-  public struct Amount: GraphQLSelectionSet {
+  public struct AmountObject: GraphQLSelectionSet {
     public static let possibleTypes = ["Money"]
 
     public static let selections: [GraphQLSelection] = [
       GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-      GraphQLFragmentSpread(AmountFragment.self),
+      GraphQLFragmentSpread(Amount.self),
     ]
 
     public private(set) var resultMap: ResultMap
@@ -105,9 +105,9 @@ public struct DaySectionWidgetFragment: GraphQLFragment {
         self.resultMap = unsafeResultMap
       }
 
-      public var amountFragment: AmountFragment {
+      public var amount: Amount {
         get {
-          return AmountFragment(unsafeResultMap: resultMap)
+          return Amount(unsafeResultMap: resultMap)
         }
         set {
           resultMap += newValue.resultMap

@@ -10,15 +10,15 @@ public final class TransactionListQuery: GraphQLQuery {
     query TransactionList {
       dailyTransactionsFeed {
         __typename
-        ...DaySectionWidgetFragment
-        ...TransactionFragment
+        ...DaySection
+        ...Transaction
       }
     }
     """
 
   public let operationName = "TransactionList"
 
-  public var queryDocument: String { return operationDefinition.appending(DaySectionWidgetFragment.fragmentDefinition).appending(AmountFragment.fragmentDefinition).appending(TransactionFragment.fragmentDefinition) }
+  public var queryDocument: String { return operationDefinition.appending(DaySection.fragmentDefinition).appending(Amount.fragmentDefinition).appending(Transaction.fragmentDefinition) }
 
   public init() {
   }
@@ -54,8 +54,8 @@ public final class TransactionListQuery: GraphQLQuery {
 
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-        GraphQLFragmentSpread(DaySectionWidgetFragment.self),
-        GraphQLFragmentSpread(TransactionFragment.self),
+        GraphQLFragmentSpread(DaySection.self),
+        GraphQLFragmentSpread(Transaction.self),
       ]
 
       public private(set) var resultMap: ResultMap
@@ -89,10 +89,10 @@ public final class TransactionListQuery: GraphQLQuery {
           self.resultMap = unsafeResultMap
         }
 
-        public var daySectionWidgetFragment: DaySectionWidgetFragment? {
+        public var daySection: DaySection? {
           get {
-            if !DaySectionWidgetFragment.possibleTypes.contains(resultMap["__typename"]! as! String) { return nil }
-            return DaySectionWidgetFragment(unsafeResultMap: resultMap)
+            if !DaySection.possibleTypes.contains(resultMap["__typename"]! as! String) { return nil }
+            return DaySection(unsafeResultMap: resultMap)
           }
           set {
             guard let newValue = newValue else { return }
@@ -100,10 +100,10 @@ public final class TransactionListQuery: GraphQLQuery {
           }
         }
 
-        public var transactionFragment: TransactionFragment? {
+        public var transaction: Transaction? {
           get {
-            if !TransactionFragment.possibleTypes.contains(resultMap["__typename"]! as! String) { return nil }
-            return TransactionFragment(unsafeResultMap: resultMap)
+            if !Transaction.possibleTypes.contains(resultMap["__typename"]! as! String) { return nil }
+            return Transaction(unsafeResultMap: resultMap)
           }
           set {
             guard let newValue = newValue else { return }

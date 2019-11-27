@@ -1,0 +1,6 @@
+fragment DaySection on DaySectionWidget {
+  date
+  amountObject: amount {
+    ...Amount
+  }
+}

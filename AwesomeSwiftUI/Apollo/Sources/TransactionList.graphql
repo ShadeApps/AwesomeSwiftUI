@@ -1,7 +1,6 @@
 query TransactionList {
   dailyTransactionsFeed {
-    __typename
-    ...DaySectionWidgetFragment
-    ...TransactionFragment
+    ...DaySection
+    ...Transaction
   }
 }
