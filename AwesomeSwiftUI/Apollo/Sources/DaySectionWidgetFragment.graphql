@@ -1,7 +1,6 @@
 fragment DaySectionWidgetFragment on DaySectionWidget {
   date
   amount {
-    value
-    currencyCode
+    ...AmountFragment
   }
 }

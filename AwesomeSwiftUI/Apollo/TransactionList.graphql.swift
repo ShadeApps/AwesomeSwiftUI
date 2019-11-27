@@ -18,7 +18,7 @@ public final class TransactionListQuery: GraphQLQuery {
 
   public let operationName = "TransactionList"
 
-  public var queryDocument: String { return operationDefinition.appending(DaySectionWidgetFragment.fragmentDefinition).appending(TransactionFragment.fragmentDefinition) }
+  public var queryDocument: String { return operationDefinition.appending(DaySectionWidgetFragment.fragmentDefinition).appending(AmountFragment.fragmentDefinition).appending(TransactionFragment.fragmentDefinition) }
 
   public init() {
   }

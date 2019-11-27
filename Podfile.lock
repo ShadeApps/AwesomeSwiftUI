@@ -2,11 +2,18 @@ PODS:
   - Apollo (0.20.0):
     - Apollo/Core (= 0.20.0)
   - Apollo/Core (0.20.0)
+  - Apollo/SQLite (0.20.0):
+    - Apollo/Core
+    - SQLite.swift (= 0.12.2)
   - Nimble (8.0.4)
   - Quick (2.2.0)
+  - SQLite.swift (0.12.2):
+    - SQLite.swift/standard (= 0.12.2)
+  - SQLite.swift/standard (0.12.2)
 
 DEPENDENCIES:
   - Apollo
+  - Apollo/SQLite
   - Nimble
   - Quick
 
@@ -15,12 +22,14 @@ SPEC REPOS:
     - Apollo
     - Nimble
     - Quick
+    - SQLite.swift
 
 SPEC CHECKSUMS:
   Apollo: 46b40c7023c1d49f2220a0364cdff8829674d9d3
   Nimble: 18d5360282923225d62b09d781f63abc1a0111fc
   Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
+  SQLite.swift: d2b4642190917051ce6bd1d49aab565fe794eea3
 
-PODFILE CHECKSUM: a87c22b153d99a876be4ac4092e97fccae3501fc
+PODFILE CHECKSUM: 0d5f2d75173218e8ffa31f047519df4df0f846a7
 
 COCOAPODS: 1.8.4

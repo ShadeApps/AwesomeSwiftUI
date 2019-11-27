@@ -7,10 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		403200B9238ED83800081E7F /* AmountFragment.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403200B8238ED83800081E7F /* AmountFragment.graphql.swift */; };
 		409E2A63238EC20A00E92AAA /* Types.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409E2A5F238EC20A00E92AAA /* Types.graphql.swift */; };
 		409E2A64238EC20A00E92AAA /* TransactionList.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409E2A60238EC20A00E92AAA /* TransactionList.graphql.swift */; };
 		409E2A65238EC20A00E92AAA /* DaySectionWidgetFragment.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409E2A61238EC20A00E92AAA /* DaySectionWidgetFragment.graphql.swift */; };
 		409E2A66238EC20A00E92AAA /* TransactionFragment.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409E2A62238EC20A00E92AAA /* TransactionFragment.graphql.swift */; };
+		409E2A68238ECA8500E92AAA /* TransactionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409E2A67238ECA8500E92AAA /* TransactionProvider.swift */; };
+		409E2A6B238ECB0800E92AAA /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409E2A6A238ECB0800E92AAA /* NetworkClient.swift */; };
+		409E2A6D238ED1C200E92AAA /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409E2A6C238ED1C200E92AAA /* NetworkLogger.swift */; };
 		40CBE3A2238E96630040A05D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CBE3A1238E96630040A05D /* AppDelegate.swift */; };
 		40CBE3A4238E96630040A05D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CBE3A3238E96630040A05D /* SceneDelegate.swift */; };
 		40CBE3A6238E96630040A05D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CBE3A5238E96630040A05D /* ContentView.swift */; };
@@ -32,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		403200B7238ED75900081E7F /* AmountFragment.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = AmountFragment.graphql; sourceTree = "<group>"; };
+		403200B8238ED83800081E7F /* AmountFragment.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmountFragment.graphql.swift; sourceTree = "<group>"; };
 		409E2A58238EABF400E92AAA /* schema.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 		409E2A5A238EBDFB00E92AAA /* TransactionFragment.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = TransactionFragment.graphql; sourceTree = "<group>"; };
 		409E2A5B238EBDFB00E92AAA /* DaySectionWidgetFragment.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = DaySectionWidgetFragment.graphql; sourceTree = "<group>"; };
@@ -40,6 +46,9 @@
 		409E2A60238EC20A00E92AAA /* TransactionList.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionList.graphql.swift; sourceTree = "<group>"; };
 		409E2A61238EC20A00E92AAA /* DaySectionWidgetFragment.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DaySectionWidgetFragment.graphql.swift; sourceTree = "<group>"; };
 		409E2A62238EC20A00E92AAA /* TransactionFragment.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionFragment.graphql.swift; sourceTree = "<group>"; };
+		409E2A67238ECA8500E92AAA /* TransactionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionProvider.swift; sourceTree = "<group>"; };
+		409E2A6A238ECB0800E92AAA /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		409E2A6C238ED1C200E92AAA /* NetworkLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
 		40CBE39E238E96630040A05D /* AwesomeSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AwesomeSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40CBE3A1238E96630040A05D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40CBE3A3238E96630040A05D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +87,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		403200BA238EDACB00081E7F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		403200BB238EDAD000081E7F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		409E2A59238EBD7800E92AAA /* Apollo */ = {
 			isa = PBXGroup;
 			children = (
@@ -85,7 +108,10 @@
 				409E2A61238EC20A00E92AAA /* DaySectionWidgetFragment.graphql.swift */,
 				409E2A62238EC20A00E92AAA /* TransactionFragment.graphql.swift */,
 				409E2A60238EC20A00E92AAA /* TransactionList.graphql.swift */,
+				403200B8238ED83800081E7F /* AmountFragment.graphql.swift */,
 				409E2A5F238EC20A00E92AAA /* Types.graphql.swift */,
+				409E2A6A238ECB0800E92AAA /* NetworkClient.swift */,
+				409E2A6C238ED1C200E92AAA /* NetworkLogger.swift */,
 			);
 			path = Apollo;
 			sourceTree = "<group>";
@@ -96,9 +122,18 @@
 				409E2A5B238EBDFB00E92AAA /* DaySectionWidgetFragment.graphql */,
 				409E2A5A238EBDFB00E92AAA /* TransactionFragment.graphql */,
 				409E2A5C238EBDFB00E92AAA /* TransactionList.graphql */,
+				403200B7238ED75900081E7F /* AmountFragment.graphql */,
 				409E2A58238EABF400E92AAA /* schema.json */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		409E2A69238ECA8A00E92AAA /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				409E2A67238ECA8500E92AAA /* TransactionProvider.swift */,
+			);
+			path = Providers;
 			sourceTree = "<group>";
 		};
 		40CBE395238E96630040A05D = {
@@ -127,6 +162,9 @@
 				40CBE3A1238E96630040A05D /* AppDelegate.swift */,
 				40CBE3A3238E96630040A05D /* SceneDelegate.swift */,
 				40CBE3A5238E96630040A05D /* ContentView.swift */,
+				403200BB238EDAD000081E7F /* View */,
+				403200BA238EDACB00081E7F /* Model */,
+				409E2A69238ECA8A00E92AAA /* Providers */,
 				409E2A59238EBD7800E92AAA /* Apollo */,
 				40CBE3A7238E96660040A05D /* Assets.xcassets */,
 				40CBE3AC238E96660040A05D /* LaunchScreen.storyboard */,
@@ -370,10 +408,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				409E2A63238EC20A00E92AAA /* Types.graphql.swift in Sources */,
+				403200B9238ED83800081E7F /* AmountFragment.graphql.swift in Sources */,
 				40CBE3A2238E96630040A05D /* AppDelegate.swift in Sources */,
 				409E2A66238EC20A00E92AAA /* TransactionFragment.graphql.swift in Sources */,
+				409E2A6D238ED1C200E92AAA /* NetworkLogger.swift in Sources */,
 				409E2A64238EC20A00E92AAA /* TransactionList.graphql.swift in Sources */,
 				409E2A65238EC20A00E92AAA /* DaySectionWidgetFragment.graphql.swift in Sources */,
+				409E2A6B238ECB0800E92AAA /* NetworkClient.swift in Sources */,
+				409E2A68238ECA8500E92AAA /* TransactionProvider.swift in Sources */,
 				40CBE3A4238E96630040A05D /* SceneDelegate.swift in Sources */,
 				40CBE3A6238E96630040A05D /* ContentView.swift in Sources */,
 			);

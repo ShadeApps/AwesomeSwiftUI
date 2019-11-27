@@ -5,6 +5,7 @@ def required_pods
 
     # networking
     pod 'Apollo'
+    pod 'Apollo/SQLite'
     
 end
 

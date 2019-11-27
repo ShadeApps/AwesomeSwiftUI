@@ -16,8 +16,7 @@ public struct TransactionFragment: GraphQLFragment {
         type
         amount {
           __typename
-          value
-          currencyCode
+          ...AmountFragment
         }
       }
       image {
@@ -143,8 +142,7 @@ public struct TransactionFragment: GraphQLFragment {
 
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-        GraphQLField("value", type: .nonNull(.scalar(String.self))),
-        GraphQLField("currencyCode", type: .nonNull(.scalar(CurrencyCode.self))),
+        GraphQLFragmentSpread(AmountFragment.self),
       ]
 
       public private(set) var resultMap: ResultMap
@@ -166,21 +164,29 @@ public struct TransactionFragment: GraphQLFragment {
         }
       }
 
-      public var value: String {
+      public var fragments: Fragments {
         get {
-          return resultMap["value"]! as! String
+          return Fragments(unsafeResultMap: resultMap)
         }
         set {
-          resultMap.updateValue(newValue, forKey: "value")
+          resultMap += newValue.resultMap
         }
       }
 
-      public var currencyCode: CurrencyCode {
-        get {
-          return resultMap["currencyCode"]! as! CurrencyCode
+      public struct Fragments {
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
         }
-        set {
-          resultMap.updateValue(newValue, forKey: "currencyCode")
+
+        public var amountFragment: AmountFragment {
+          get {
+            return AmountFragment(unsafeResultMap: resultMap)
+          }
+          set {
+            resultMap += newValue.resultMap
+          }
         }
       }
     }
