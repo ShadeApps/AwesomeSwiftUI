@@ -9,12 +9,18 @@
 import Foundation
 import Apollo
 
+private enum Constants {
+    static let baseURL = "http://localhost:4000/graphql"
+    static let dbPath = "/com.shadeapps.AwesomeSwiftUI.cache"
+    static let dbName = "db.sqlite3"
+}
+
 class NetworkClient {
     // MARK: - Initialization
     static let shared = NetworkClient()
     
     private lazy var networkTransport = HTTPNetworkTransport(
-        url: URL(string: "http://localhost:4000/graphql")!,
+        url: URL(string: Constants.baseURL)!,
         delegate: self
     )
     
@@ -26,14 +32,14 @@ class NetworkClient {
     
     private var dbURL: URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let dbPath = paths[0].absoluteString + "/com.shadeapps.AwesomeSwiftUI.cache"
+        let dbPath = paths[0].absoluteString + Constants.dbPath
         
         if !FileManager.default.fileExists(atPath: dbPath) {
             try? FileManager.default.createDirectory(atPath:
                 dbPath, withIntermediateDirectories: true, attributes: nil)
         }
         
-        return URL(fileURLWithPath: dbPath).appendingPathComponent("db.sqlite3")
+        return URL(fileURLWithPath: dbPath).appendingPathComponent(Constants.dbName)
     }
 }
 

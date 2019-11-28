@@ -14,8 +14,8 @@ final class TransactionViewModel : ObservableObject {
     private let dataProvider = TransactionProvider()
     private var transactionSubscriber: AnyCancellable?
     var didChange = PassthroughSubject<TransactionViewModel, Error>()
-    
-    private(set) var days = [TransactionDay]() {
+
+    @Published private(set) var days = [TransactionDay]() {
         didSet {
             didChange.send(self)
         }

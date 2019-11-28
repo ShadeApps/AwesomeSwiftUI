@@ -11,19 +11,45 @@ import SwiftUI
 struct ContentView: View {
     
     @ObservedObject var viewModel = TransactionViewModel()
-    
-    var body: some View {
-        Group {
-            if viewModel.days.count > 0 {
-                Text("Loaded")
-            } else {
-                Text("Loading...")
-            }
-        }.onAppear {
-            self.viewModel.refresh()
+    @State private var isSortingByDate = false {
+        didSet {
+            
+        }
+    }
+    @State private var isSortingByType = false {
+        didSet {
+            
         }
     }
     
+    var body: some View {
+        NavigationView {
+            Text("Hey")
+            }.navigationBarTitle("", displayMode: .inline)
+                .navigationBarItems(leading:
+                    Button(action: {
+                        self.isSortingByDate.toggle()
+                    }, label: {
+                        dateSortIcon
+                    }).modifier(NavBarButtonStyle()),
+                                    trailing:
+                    Button(action: {
+                        self.isSortingByType.toggle()
+                    }, label: {
+                        typeSortIcon
+                    }).modifier(NavBarButtonStyle())
+            )
+    }
+    
+    private var dateSortIcon: Image {
+        return Image(systemName: isSortingByDate ?
+        UIConstants.sortCalendarIconFilled : UIConstants.sortCalendarIcon)
+    }
+    
+    private var typeSortIcon: Image {
+        return Image(systemName: isSortingByType ?
+        UIConstants.sortTransactionIconFilled : UIConstants.sortTransactionIcon)
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
