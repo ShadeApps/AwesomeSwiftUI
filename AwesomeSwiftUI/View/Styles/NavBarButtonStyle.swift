@@ -11,8 +11,8 @@ import SwiftUI
 struct NavBarButtonStyle: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .padding(10)
-            .font(.system(size: 20))
-            .foregroundColor(Color.black)
+            .padding(UIConstants.navBarButtonPadding)
+            .font(.system(size: UIConstants.navBarButtonSize))
+            .foregroundColor(UIConstants.buttonColor.swiftColor)
     }
 }

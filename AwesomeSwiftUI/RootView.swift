@@ -55,10 +55,11 @@ struct RootView: View {
     private var list: some View {
         return List {
             ForEach(viewModel.days, id: \.date) { day in
-                Section(header: TransactionListHeader(leftText: day.printableDate, rightText: day.printableAmount), footer: Text("Meh")) {
-                    ForEach(day.transactions ?? [], id: \.transactionObject.id) { transaction in
-                        Text("ID: \(transaction.transactionObject.id)")
-                    }
+                Section(header: TransactionListHeader(leftText: day.printableDate, rightText: day.printableAmount),
+                        footer: TransactionListFooter()) {
+                            ForEach(day.transactions ?? [], id: \.transactionObject.id) { transaction in
+                                Text("ID: \(transaction.transactionObject.id)")
+                            }
                 }
             }
         }.background(Color.white)
@@ -87,12 +88,4 @@ struct RootView: View {
         HapticHelper.vibrateLightTap()
         withDate ? isSortingByDate.toggle() : isSortingByType.toggle()
     }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        RootView()
-    }
-    
 }

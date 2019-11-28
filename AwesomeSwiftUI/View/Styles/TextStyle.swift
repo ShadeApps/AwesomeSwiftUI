@@ -11,7 +11,7 @@ import SwiftUI
 struct HeaderTextStyle: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .font(.system(size: 16, weight: .regular, design: .default))
-            .foregroundColor(Color.gray)
+            .font(.system(size: UIConstants.headerTextSize, weight: .regular, design: .default))
+            .foregroundColor(UIConstants.grayTextColor.swiftColor)
     }
 }

@@ -9,13 +9,17 @@
 import SwiftUI
 
 struct TransactionListFooter: View {
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Spacer()
+            Rectangle()
+                .fill(UIConstants.separatorColor.swiftColor)
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: UIConstants.footerHeight,
+                       maxHeight: UIConstants.footerHeight, alignment: .center)
+        }.frame(minWidth: 0, maxWidth: .infinity, minHeight: UIConstants.headerHeight / 2,
+                maxHeight: .infinity, alignment: .center)
+            .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
     }
-}
-
-struct TransactionListFooter_Previews: PreviewProvider {
-    static var previews: some View {
-        TransactionListFooter()
-    }
+    
 }

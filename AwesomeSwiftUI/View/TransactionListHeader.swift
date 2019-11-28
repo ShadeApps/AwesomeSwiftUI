@@ -24,9 +24,3 @@ struct TransactionListHeader: View {
         .listRowInsets(EdgeInsets(top: 0, leading: UIConstants.headerInset, bottom: 0, trailing: UIConstants.headerInset))
     }
 }
-
-struct TransactionListHeader_Previews: PreviewProvider {
-    static var previews: some View {
-        TransactionListHeader()
-    }
-}
