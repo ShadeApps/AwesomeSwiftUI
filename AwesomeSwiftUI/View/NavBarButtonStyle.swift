@@ -12,7 +12,7 @@ struct NavBarButtonStyle: ViewModifier {
     func body(content: Content) -> some View {
         content
             .padding(10)
-            .font(.title)
+            .font(.system(size: 20))
             .foregroundColor(Color.black)
     }
 }

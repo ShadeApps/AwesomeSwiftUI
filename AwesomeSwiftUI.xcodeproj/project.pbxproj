@@ -19,6 +19,8 @@
 		408CC1E5238FB3B800F2C325 /* TransactionListFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408CC1E4238FB3B800F2C325 /* TransactionListFooter.swift */; };
 		408CC1E7238FB3C900F2C325 /* TransactionListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408CC1E6238FB3C900F2C325 /* TransactionListRow.swift */; };
 		408CC1E9238FB44400F2C325 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408CC1E8238FB44400F2C325 /* UIConstants.swift */; };
+		408CC1EC238FD3D400F2C325 /* DateFormatterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408CC1EB238FD3D400F2C325 /* DateFormatterHelper.swift */; };
+		408CC1EE238FD45800F2C325 /* HapticHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408CC1ED238FD45800F2C325 /* HapticHelper.swift */; };
 		409E2A68238ECA8500E92AAA /* TransactionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409E2A67238ECA8500E92AAA /* TransactionProvider.swift */; };
 		409E2A6B238ECB0800E92AAA /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409E2A6A238ECB0800E92AAA /* NetworkClient.swift */; };
 		409E2A6D238ED1C200E92AAA /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409E2A6C238ED1C200E92AAA /* NetworkLogger.swift */; };
@@ -56,6 +58,8 @@
 		408CC1E4238FB3B800F2C325 /* TransactionListFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListFooter.swift; sourceTree = "<group>"; };
 		408CC1E6238FB3C900F2C325 /* TransactionListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListRow.swift; sourceTree = "<group>"; };
 		408CC1E8238FB44400F2C325 /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
+		408CC1EB238FD3D400F2C325 /* DateFormatterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterHelper.swift; sourceTree = "<group>"; };
+		408CC1ED238FD45800F2C325 /* HapticHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticHelper.swift; sourceTree = "<group>"; };
 		409E2A58238EABF400E92AAA /* schema.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 		409E2A5A238EBDFB00E92AAA /* Transaction.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Transaction.graphql; sourceTree = "<group>"; };
 		409E2A5B238EBDFB00E92AAA /* DaySection.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = DaySection.graphql; sourceTree = "<group>"; };
@@ -131,6 +135,15 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		408CC1EA238FD3C300F2C325 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				408CC1EB238FD3D400F2C325 /* DateFormatterHelper.swift */,
+				408CC1ED238FD45800F2C325 /* HapticHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		409E2A59238EBD7800E92AAA /* Apollo */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +206,7 @@
 				403200BB238EDAD000081E7F /* View */,
 				403200BA238EDACB00081E7F /* Model */,
 				409E2A69238ECA8A00E92AAA /* Providers */,
+				408CC1EA238FD3C300F2C325 /* Helpers */,
 				403200D6238F14E300081E7F /* Network */,
 				409E2A59238EBD7800E92AAA /* Apollo */,
 				40CBE3A7238E96660040A05D /* Assets.xcassets */,
@@ -441,10 +455,12 @@
 				403200E6238F16A200081E7F /* Transaction.graphql.swift in Sources */,
 				409E2A6D238ED1C200E92AAA /* NetworkLogger.swift in Sources */,
 				403200BD238EF65900081E7F /* TransactionDay.swift in Sources */,
+				408CC1EC238FD3D400F2C325 /* DateFormatterHelper.swift in Sources */,
 				409E2A6B238ECB0800E92AAA /* NetworkClient.swift in Sources */,
 				409E2A68238ECA8500E92AAA /* TransactionProvider.swift in Sources */,
 				408CC1E5238FB3B800F2C325 /* TransactionListFooter.swift in Sources */,
 				40CBE3A4238E96630040A05D /* SceneDelegate.swift in Sources */,
+				408CC1EE238FD45800F2C325 /* HapticHelper.swift in Sources */,
 				408CC1E7238FB3C900F2C325 /* TransactionListRow.swift in Sources */,
 				403200E8238F16A200081E7F /* Types.graphql.swift in Sources */,
 				408CC1E9238FB44400F2C325 /* UIConstants.swift in Sources */,

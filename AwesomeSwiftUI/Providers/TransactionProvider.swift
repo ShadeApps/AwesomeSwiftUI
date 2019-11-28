@@ -50,7 +50,7 @@ final class TransactionProvider: NSObject {
                 }
 
                 newDay = TransactionDay()
-                newDay?.date = fragment.date
+                newDay?.date = DateFormatterHelper.dateFromString(fragment.date)
                 newDay?.amount = fragment.amountObject
                 newDay?.transactions = [Transaction]()
             }
