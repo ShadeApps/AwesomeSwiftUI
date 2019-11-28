@@ -91,11 +91,7 @@ private extension RootView {
     }
     
     var showLoader: Bool {
-        if isSortingByDate || isSortingByType {
-            return false
-        }
-        
-        return viewModel.days.count == 0 && viewModel.error.isNone
+        return viewModel.days.count == 0 && viewModel.error.isNone && !viewModel.finishedDataLoad
     }
     
     func toggleSort(withDate: Bool) {

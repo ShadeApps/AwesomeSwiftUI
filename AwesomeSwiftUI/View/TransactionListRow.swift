@@ -17,9 +17,13 @@ struct TransactionListRow: View {
     
     var body: some View {
         HStack {
+            if isCashback {
+                cashbackBarrier
+            }
             Image(imageName).resizable()
                 .cornerRadius(UIConstants.imageCornerRadius, antialiased: true)
                 .frame(width: UIConstants.imageSize, height: UIConstants.imageSize, alignment: .center)
+            barrier
             if isCashback {
                 Text(mainText).modifier(CashbackTextStyle())
             } else {
@@ -27,6 +31,9 @@ struct TransactionListRow: View {
             }
             Spacer()
             Text(rightText)
+            if isCashback {
+                cashbackBarrier
+            }
         }
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: UIConstants.headerHeight, maxHeight: .infinity, alignment: .center)
         .background(backgroundColor).cornerRadius(cornerRadius, antialiased: true)
@@ -36,6 +43,20 @@ struct TransactionListRow: View {
 
 // MARK: - Extensions
 private extension TransactionListRow {
+    
+    var barrier: some View {
+        return Rectangle()
+            .fill(backgroundColor)
+            .frame(minWidth: 0, maxWidth: UIConstants.headerInset / 2, minHeight: 0,
+               maxHeight: UIConstants.headerHeight, alignment: .center)
+    }
+    
+    var cashbackBarrier: some View {
+        return Rectangle()
+            .fill(backgroundColor)
+            .frame(minWidth: UIConstants.headerInset / 4, maxWidth: UIConstants.headerInset / 4, minHeight: 0,
+                   maxHeight: UIConstants.headerHeight, alignment: .center)
+    }
     
     var cornerRadius: CGFloat {
         return isCashback ? UIConstants.imageCornerRadius / 2 : 0

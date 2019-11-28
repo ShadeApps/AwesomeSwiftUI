@@ -37,9 +37,11 @@ final class TransactionViewModel : ObservableObject {
         }
     }
     @Published private(set) var error :Error?
+    @Published private(set) var finishedDataLoad = false
 
     func refresh() {
         error = nil
+        finishedDataLoad = false
         
         //Delay solely for aesthetic purposes
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -54,6 +56,7 @@ final class TransactionViewModel : ObservableObject {
                     self.error = nil
                     self.days = values
                     self.unsortedDays = values
+                    self.finishedDataLoad = true
             }
             self.transactionSubscriber = AnyCancellable(dataSubscriber)
         }
