@@ -9,7 +9,7 @@
 import UIKit
 
 struct HapticHelper {
-    
+
     static func vibrateError() {
         UINotificationFeedbackGenerator().notificationOccurred(.error)
     }
@@ -37,5 +37,5 @@ struct HapticHelper {
     static func vibrateSelectionChanged() {
         UISelectionFeedbackGenerator().selectionChanged()
     }
-    
+
 }

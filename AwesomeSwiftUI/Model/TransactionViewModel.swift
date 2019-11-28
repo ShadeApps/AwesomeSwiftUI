@@ -9,17 +9,17 @@
 import Foundation
 import Combine
 
-enum TransactionViewModelError : Error {
+enum TransactionViewModelError: Error {
     case unknown
 }
 
-final class TransactionViewModel : ObservableObject {
-    
+final class TransactionViewModel: ObservableObject {
+
     enum TransactionViewModelSortType {
         case dateAscending
         case dateDescending
     }
-    
+
     enum TransactionViewModelFilterType {
         case typeAll
         case typeCashback
@@ -36,13 +36,13 @@ final class TransactionViewModel : ObservableObject {
             didChange.send(self)
         }
     }
-    @Published private(set) var error :Error?
+    @Published private(set) var error: Error?
     @Published private(set) var finishedDataLoad = false
 
     func refresh() {
         error = nil
         finishedDataLoad = false
-        
+
         //Delay solely for aesthetic purposes
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.dataProvider.getTransactions()
@@ -61,19 +61,19 @@ final class TransactionViewModel : ObservableObject {
             self.transactionSubscriber = AnyCancellable(dataSubscriber)
         }
     }
-    
+
     func sortInPlace(_ type: TransactionViewModelSortType) {
         sortType = type
-        
+
         var newDays = days
         days = [TransactionDay]()
-        
+
         //Delay for smoother animations
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             self.days = self.sortedByDate(&newDays)
         }
     }
-    
+
     func filterInPlace(_ type: TransactionViewModelFilterType) {
         var newDays = days
         days = [TransactionDay]()
@@ -81,23 +81,23 @@ final class TransactionViewModel : ObservableObject {
         //Delay for smoother animations
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             newDays = self.sortedByDate(&self.unsortedDays)
-            
+
             if type == .typeCashback {
                 let tmpDays = newDays
                 newDays = [TransactionDay]()
-                
-                for var object in tmpDays where object.transactions.isSome  {
+
+                for var object in tmpDays where object.transactions.isSome {
                     object.transactions = object.transactions!.filter({ $0.transactionObject.type == .cashback })
                     if object.transactions?.count != 0 {
                         newDays.append(object)
                     }
                 }
             }
-            
+
             self.days = newDays
         }
     }
-    
+
     @discardableResult
     private func sortedByDate(_ days: inout [TransactionDay]) -> [TransactionDay] {
         switch sortType {
@@ -106,7 +106,7 @@ final class TransactionViewModel : ObservableObject {
         case .dateDescending:
             days.sort(by: { $0.date > $1.date })
         }
-        
+
         return days
     }
 }

@@ -304,6 +304,7 @@
 				406E54B423907E8D0059E6C9 /* R.swift */,
 				40CBE39A238E96630040A05D /* Sources */,
 				409E2A5D238EBE0A00E92AAA /* Apollo CodeGen */,
+				406E54B82390824C0059E6C9 /* SwiftLint */,
 				40CBE39B238E96630040A05D /* Frameworks */,
 				40CBE39C238E96630040A05D /* Resources */,
 				2ACF2AF045744FD8571CD4B9 /* [CP] Embed Pods Frameworks */,
@@ -454,6 +455,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/AwesomeSwiftUI/Generated/R.generated.swift\"\n";
+		};
+		406E54B82390824C0059E6C9 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\" autocorrect\n";
 		};
 		409E2A5D238EBE0A00E92AAA /* Apollo CodeGen */ = {
 			isa = PBXShellScriptBuildPhase;

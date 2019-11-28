@@ -9,12 +9,12 @@
 import Foundation
 
 struct NetworkLogger {
-    
+
     enum NetworkLogType {
         case error
         case debug
     }
-    
+
     static func log(_ type: NetworkLogType, _ data: String) {
         switch type {
         case .error:

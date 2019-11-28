@@ -12,26 +12,26 @@ import SFSafeSymbols
 
 enum UIConstants {
     static let sceneConfigurationName = "Default Configuration"
-    
+
     static let dateFormatterInput = "YYYY-MM-dd"
     static let dateFormatterOutput = "MMMM, d"
-    
+
     static let sortCalendarIcon = SFSymbol.calendar
     static let sortCalendarIconFilled = SFSymbol.calendarBadgePlus
     static let sortTransactionIcon = SFSymbol.creditcard
     static let sortTransactionIconFilled = SFSymbol.creditcardFill
-    
+
     static let headerHeight = CGFloat(60)
     static let headerInset = CGFloat(25)
     static let footerHeight = CGFloat(6)
-    
+
     static let headerTextSize = CGFloat(16)
     static let navBarButtonSize = CGFloat(20)
     static let navBarButtonPadding = CGFloat(10)
-    
+
     static let imageSize = CGFloat(44)
     static let imageCornerRadius = CGFloat(18)
-    
+
     static let grayTextColor = #colorLiteral(red: 0.5840002894, green: 0.6183772087, blue: 0.6606831551, alpha: 1)
     static let defaultTextColor = #colorLiteral(red: 0.1960240602, green: 0.1960524917, blue: 0.1960143745, alpha: 1)
     static let greenTextColor = #colorLiteral(red: 0.4416535497, green: 0.5971063972, blue: 0.3120738864, alpha: 1)

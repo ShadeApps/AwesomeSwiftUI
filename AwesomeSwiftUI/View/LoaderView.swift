@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct LoaderView: View {
-    
+
     var body: some View {
         ZStack(alignment: .center) {
             VStack {
@@ -18,5 +18,5 @@ struct LoaderView: View {
             }
         }
     }
-    
+
 }

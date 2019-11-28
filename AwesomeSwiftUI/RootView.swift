@@ -22,11 +22,11 @@ struct RootView: View {
             viewModel.filterInPlace(isSortingByType ? .typeCashback : .typeAll)
         }
     }
-    
+
     init() {
         applyAppearanceStyles()
     }
-    
+
     var body: some View {
         NavigationView {
             if showLoader {
@@ -56,7 +56,7 @@ struct RootView: View {
 
 // MARK: - Extensions
 private extension RootView {
-    
+
     var list: some View {
         return List {
             ForEach(viewModel.days, id: \.date) { day in
@@ -71,7 +71,7 @@ private extension RootView {
             }
         }.background(Color.white)
     }
-    
+
     var errorView: some View {
         return VStack {
             Text("ErrorText").modifier(HeaderTextStyle()).padding()
@@ -80,41 +80,41 @@ private extension RootView {
             }
         }
     }
-    
+
     var dateSortIcon: Image {
         return Image(systemSymbol: isSortingByDate ?
         UIConstants.sortCalendarIconFilled : UIConstants.sortCalendarIcon)
     }
-    
+
     var typeSortIcon: Image {
         return Image(systemSymbol: isSortingByType ?
         UIConstants.sortTransactionIconFilled : UIConstants.sortTransactionIcon)
     }
-    
+
     var showLoader: Bool {
         return viewModel.days.count == 0 && viewModel.error.isNone && !viewModel.finishedDataLoad
     }
-    
+
     func toggleSort(withDate: Bool) {
         HapticHelper.vibrateLightTap()
         withDate ? isSortingByDate.toggle() : isSortingByType.toggle()
     }
-    
+
     func isCashback(_ transaction: Transaction) -> Bool {
         return transaction.transactionObject.type == .cashback
     }
-    
+
     func imageName(_ transaction: Transaction) -> String {
         var imageName = transaction.image?.iconName ?? ""
         if isCashback(transaction) {
             imageName = R.image.cashback.name
         }
-        
+
         //Checking if image can be initialized, providing fallback option
         if UIImage(named: imageName) == nil {
             imageName = R.image.coffee.name
         }
-        
+
         return imageName
     }
 }

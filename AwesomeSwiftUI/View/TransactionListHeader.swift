@@ -9,10 +9,10 @@
 import SwiftUI
 
 struct TransactionListHeader: View {
-    
+
     var leftText = ""
     var rightText = ""
-    
+
     var body: some View {
         HStack {
             Text(leftText).modifier(HeaderTextStyle())

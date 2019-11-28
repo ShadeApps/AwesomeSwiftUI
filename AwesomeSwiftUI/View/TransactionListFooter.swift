@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct TransactionListFooter: View {
-    
+
     var body: some View {
         VStack {
             Spacer()
@@ -21,5 +21,5 @@ struct TransactionListFooter: View {
                 maxHeight: UIConstants.headerHeight / 3, alignment: .center)
             .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
     }
-    
+
 }
