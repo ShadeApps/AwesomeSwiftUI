@@ -10,6 +10,9 @@ def required_pods
     # code gen
     pod 'R.swift'
     
+    # sfsymbols
+    pod 'SFSafeSymbols', '~> 1.0.1'
+    
     # linter
     pod 'SwiftLint'
 end

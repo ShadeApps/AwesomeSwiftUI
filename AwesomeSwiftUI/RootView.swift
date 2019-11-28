@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import SFSafeSymbols
 
 struct RootView: View {
     // MARK: - Initialization
@@ -81,12 +82,12 @@ private extension RootView {
     }
     
     var dateSortIcon: Image {
-        return Image(systemName: isSortingByDate ?
+        return Image(systemSymbol: isSortingByDate ?
         UIConstants.sortCalendarIconFilled : UIConstants.sortCalendarIcon)
     }
     
     var typeSortIcon: Image {
-        return Image(systemName: isSortingByType ?
+        return Image(systemSymbol: isSortingByType ?
         UIConstants.sortTransactionIconFilled : UIConstants.sortTransactionIcon)
     }
     

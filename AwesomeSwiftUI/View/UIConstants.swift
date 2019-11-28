@@ -6,19 +6,20 @@
 //  Copyright © 2019 Sergey Grischyov. All rights reserved.
 //
 
-import Foundation
 import UIKit
+import Foundation
+import SFSafeSymbols
 
 enum UIConstants {
     static let sceneConfigurationName = "Default Configuration"
     
-    static let sortCalendarIcon = "calendar"
-    static let sortCalendarIconFilled = "calendar.badge.plus"
-    static let sortTransactionIcon = "creditcard"
-    static let sortTransactionIconFilled = "creditcard.fill"
-    
     static let dateFormatterInput = "YYYY-MM-dd"
     static let dateFormatterOutput = "MMMM, d"
+    
+    static let sortCalendarIcon = SFSymbol.calendar
+    static let sortCalendarIconFilled = SFSymbol.calendarBadgePlus
+    static let sortTransactionIcon = SFSymbol.creditcard
+    static let sortTransactionIconFilled = SFSymbol.creditcardFill
     
     static let headerHeight = CGFloat(60)
     static let headerInset = CGFloat(25)

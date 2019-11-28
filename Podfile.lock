@@ -10,6 +10,7 @@ PODS:
   - R.swift (5.1.0):
     - R.swift.Library (~> 5.1.0)
   - R.swift.Library (5.1.0)
+  - SFSafeSymbols (1.0.1)
   - SQLite.swift (0.12.2):
     - SQLite.swift/standard (= 0.12.2)
   - SQLite.swift/standard (0.12.2)
@@ -21,6 +22,7 @@ DEPENDENCIES:
   - Nimble
   - Quick
   - R.swift
+  - SFSafeSymbols (~> 1.0.1)
   - SwiftLint
 
 SPEC REPOS:
@@ -30,6 +32,7 @@ SPEC REPOS:
     - Quick
     - R.swift
     - R.swift.Library
+    - SFSafeSymbols
     - SQLite.swift
     - SwiftLint
 
@@ -39,9 +42,10 @@ SPEC CHECKSUMS:
   Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
   R.swift: 8cbc4fc69b740305b6a17c8a8ed968eb788962d9
   R.swift.Library: fa85ce1e0d0b7e818cd9e080df910ba54d2776cc
+  SFSafeSymbols: 5b35657e1d57079cd56504b5075cc5167d587f36
   SQLite.swift: d2b4642190917051ce6bd1d49aab565fe794eea3
   SwiftLint: c078a14d7d7ade75e5507795d185e3da41d844d2
 
-PODFILE CHECKSUM: b38940863448c27f7435d30f4353697c79361f32
+PODFILE CHECKSUM: 2d00c4738c201951d00594c39297836ee2562443
 
 COCOAPODS: 1.8.4
