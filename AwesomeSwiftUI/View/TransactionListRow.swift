@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct TransactionListRow: View {
-    
+// MARK: - Initialization
     var mainText = ""
     var rightText = ""
     var imageName = ""
@@ -17,8 +17,9 @@ struct TransactionListRow: View {
     
     var body: some View {
         HStack {
-            Image(imageName).resizable().cornerRadius(16, antialiased: true).frame(width: 44, height: 44, alignment: .center).aspectRatio(contentMode: .fill)
-            Spacer()
+            Image(imageName).resizable()
+                .cornerRadius(UIConstants.imageCornerRadius, antialiased: true)
+                .frame(width: UIConstants.imageSize, height: UIConstants.imageSize, alignment: .center)
             if isCashback {
                 Text(mainText).modifier(CashbackTextStyle())
             } else {
@@ -28,7 +29,24 @@ struct TransactionListRow: View {
             Text(rightText)
         }
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: UIConstants.headerHeight, maxHeight: .infinity, alignment: .center)
-        .background(Color.white)
-        .listRowInsets(EdgeInsets(top: 0, leading: UIConstants.headerInset, bottom: 0, trailing: UIConstants.headerInset))
+        .background(backgroundColor).cornerRadius(cornerRadius, antialiased: true)
+        .listRowInsets(EdgeInsets(top: 0, leading: inset, bottom: 0, trailing: inset))
     }
+}
+
+// MARK: - Extensions
+private extension TransactionListRow {
+    
+    var cornerRadius: CGFloat {
+        return isCashback ? UIConstants.imageCornerRadius / 2 : 0
+    }
+    
+    var inset: CGFloat {
+        return isCashback ? UIConstants.headerInset / 2 : UIConstants.headerInset
+    }
+    
+    var backgroundColor: Color {
+        return isCashback ? UIConstants.greenBackgroundColor.swiftColor : Color.white
+    }
+    
 }

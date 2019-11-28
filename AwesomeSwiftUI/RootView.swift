@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct RootView: View {
-    
+    // MARK: - Initialization
     @ObservedObject var viewModel = TransactionViewModel()
     @State private var isSortingByDate = false {
         didSet {
@@ -51,8 +51,12 @@ struct RootView: View {
             self.viewModel.refresh()
         }
     }
+}
+
+// MARK: - Extensions
+private extension RootView {
     
-    private var list: some View {
+    var list: some View {
         return List {
             ForEach(viewModel.days, id: \.date) { day in
                 Section(header: TransactionListHeader(leftText: day.printableDate, rightText: day.printableAmount),
@@ -67,7 +71,7 @@ struct RootView: View {
         }.background(Color.white)
     }
     
-    private var errorView: some View {
+    var errorView: some View {
         return VStack {
             Text("ErrorText").modifier(HeaderTextStyle()).padding()
             Button("ErrorButton") {
@@ -76,17 +80,17 @@ struct RootView: View {
         }
     }
     
-    private var dateSortIcon: Image {
+    var dateSortIcon: Image {
         return Image(systemName: isSortingByDate ?
         UIConstants.sortCalendarIconFilled : UIConstants.sortCalendarIcon)
     }
     
-    private var typeSortIcon: Image {
+    var typeSortIcon: Image {
         return Image(systemName: isSortingByType ?
         UIConstants.sortTransactionIconFilled : UIConstants.sortTransactionIcon)
     }
     
-    private var showLoader: Bool {
+    var showLoader: Bool {
         if isSortingByDate || isSortingByType {
             return false
         }
@@ -94,21 +98,26 @@ struct RootView: View {
         return viewModel.days.count == 0 && viewModel.error.isNone
     }
     
-    private func toggleSort(withDate: Bool) {
+    func toggleSort(withDate: Bool) {
         HapticHelper.vibrateLightTap()
         withDate ? isSortingByDate.toggle() : isSortingByType.toggle()
     }
     
-    private func isCashback(_ transaction: Transaction) -> Bool {
+    func isCashback(_ transaction: Transaction) -> Bool {
         return transaction.transactionObject.type == .cashback
     }
     
-    private func imageName(_ transaction: Transaction) -> String {
+    func imageName(_ transaction: Transaction) -> String {
         var imageName = transaction.image?.iconName ?? ""
         if isCashback(transaction) {
-            imageName = "cashback"
+            imageName = UIConstants.imageNameCashback
         }
+        
+        //Checking if image can be initialized, providing fallback option
+        if UIImage(named: imageName) == nil {
+            imageName = UIConstants.imageNameDefault
+        }
+        
         return imageName
     }
-    
 }

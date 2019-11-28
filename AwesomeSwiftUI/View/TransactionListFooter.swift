@@ -15,7 +15,7 @@ struct TransactionListFooter: View {
             Spacer()
             Rectangle()
                 .fill(UIConstants.separatorColor.swiftColor)
-                .frame(minWidth: 0, maxWidth: .infinity, minHeight: UIConstants.footerHeight,
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0,
                        maxHeight: UIConstants.footerHeight, alignment: .center)
         }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0,
                 maxHeight: UIConstants.headerHeight / 3, alignment: .center)

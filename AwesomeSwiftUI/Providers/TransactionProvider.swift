@@ -10,7 +10,7 @@ import Foundation
 import Combine
 
 final class TransactionProvider: NSObject {
-    
+    // MARK: - Initialization
     private let dataPublisher: PassthroughSubject<[TransactionDay], Error>
     private var transactions = [TransactionDay]()
     var publisher: AnyPublisher<[TransactionDay], Error>
@@ -37,25 +37,29 @@ final class TransactionProvider: NSObject {
             }
         }
     }
+}
 
-    private func normalizeAndPublishResponse(_ response: [TransactionListQuery.Data.DailyTransactionsFeed?]) {
+// MARK: - Extensions
+private extension TransactionProvider {
+    
+    func normalizeAndPublishResponse(_ response: [TransactionListQuery.Data.DailyTransactionsFeed?]) {
         //This is necessary because DaySection does NOT contain Transaction inside itself as it normally should
-
+        
         transactions = [TransactionDay]()
         var newDay: TransactionDay?
-
+        
         for object in response {
             if let fragment = object?.fragments.daySection {
                 if let day = newDay, day.transactions?.count != 0 {
                     transactions.append(day)
                 }
-
+                
                 newDay = TransactionDay()
                 newDay?.date = DateFormatterHelper.dateFromString(fragment.date)
                 newDay?.amount = fragment.amountObject
                 newDay?.transactions = [Transaction]()
             }
-
+            
             if let transactionFragment = object?.fragments.transaction {
                 newDay?.transactions?.append(transactionFragment)
             }
