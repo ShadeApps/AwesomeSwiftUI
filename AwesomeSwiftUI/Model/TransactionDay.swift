@@ -9,7 +9,7 @@
 import Foundation
 
 struct TransactionDay {
-    //TransactionDay proxy model is necessary because DaySection does NOT contain Transaction inside itself
+    //TransactionDay model is necessary because DaySection does NOT contain Transaction inside itself
     //Otherwise, we would just use DaySection with a collection of Transaction objects inside
     
     var date: String?

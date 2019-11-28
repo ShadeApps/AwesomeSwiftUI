@@ -8,14 +8,14 @@
 
 import Foundation
 import Combine
-import SwiftUI
 
 final class TransactionViewModel : ObservableObject {
 
     private let dataProvider = TransactionProvider()
-    var didChange = PassthroughSubject<TransactionViewModel, Never>()
+    private var transactionSubscriber: AnyCancellable?
+    var didChange = PassthroughSubject<TransactionViewModel, Error>()
     
-    private(set) var days: [TransactionDay]? {
+    private(set) var days = [TransactionDay]() {
         didSet {
             didChange.send(self)
         }
@@ -23,5 +23,14 @@ final class TransactionViewModel : ObservableObject {
 
     func refresh() {
         dataProvider.getTransactions()
+        let dataSubscriber = dataProvider
+            .publisher
+            .receive(on: RunLoop.main)
+            .sink(receiveCompletion: { (error) in
+                self.didChange.send(completion: error)
+            }) { (values) in
+                self.days = values
+        }
+        transactionSubscriber = AnyCancellable(dataSubscriber)
     }
 }
