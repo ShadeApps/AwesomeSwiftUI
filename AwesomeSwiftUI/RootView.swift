@@ -106,12 +106,12 @@ private extension RootView {
     func imageName(_ transaction: Transaction) -> String {
         var imageName = transaction.image?.iconName ?? ""
         if isCashback(transaction) {
-            imageName = UIConstants.imageNameCashback
+            imageName = R.image.cashback.name
         }
         
         //Checking if image can be initialized, providing fallback option
         if UIImage(named: imageName) == nil {
-            imageName = UIConstants.imageNameDefault
+            imageName = R.image.coffee.name
         }
         
         return imageName

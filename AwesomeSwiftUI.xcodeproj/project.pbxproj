@@ -21,6 +21,7 @@
 		406E54AF23904D4D0059E6C9 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406E54AE23904D4D0059E6C9 /* ActivityIndicator.swift */; };
 		406E54B1239058710059E6C9 /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406E54B0239058710059E6C9 /* Optional.swift */; };
 		406E54B3239063800059E6C9 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406E54B2239063800059E6C9 /* Color.swift */; };
+		406E54B723907F370059E6C9 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406E54B623907F370059E6C9 /* R.generated.swift */; };
 		408CC1E1238FAE5100F2C325 /* NavBarButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408CC1E0238FAE5100F2C325 /* NavBarButtonStyle.swift */; };
 		408CC1E3238FB3A800F2C325 /* TransactionListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408CC1E2238FB3A800F2C325 /* TransactionListHeader.swift */; };
 		408CC1E5238FB3B800F2C325 /* TransactionListFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408CC1E4238FB3B800F2C325 /* TransactionListFooter.swift */; };
@@ -67,6 +68,7 @@
 		406E54AE23904D4D0059E6C9 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		406E54B0239058710059E6C9 /* Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
 		406E54B2239063800059E6C9 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		406E54B623907F370059E6C9 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		408CC1E0238FAE5100F2C325 /* NavBarButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarButtonStyle.swift; sourceTree = "<group>"; };
 		408CC1E2238FB3A800F2C325 /* TransactionListHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListHeader.swift; sourceTree = "<group>"; };
 		408CC1E4238FB3B800F2C325 /* TransactionListFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListFooter.swift; sourceTree = "<group>"; };
@@ -168,6 +170,14 @@
 			path = Styles;
 			sourceTree = "<group>";
 		};
+		406E54B523907E980059E6C9 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				406E54B623907F370059E6C9 /* R.generated.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
 		408CC1EA238FD3C300F2C325 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,6 +254,7 @@
 				409E2A69238ECA8A00E92AAA /* Providers */,
 				408CC1EA238FD3C300F2C325 /* Helpers */,
 				406E54A423901E8A0059E6C9 /* Localization */,
+				406E54B523907E980059E6C9 /* Generated */,
 				403200D6238F14E300081E7F /* Network */,
 				409E2A59238EBD7800E92AAA /* Apollo */,
 				40CBE3A7238E96660040A05D /* Assets.xcassets */,
@@ -290,6 +301,7 @@
 			buildConfigurationList = 40CBE3BD238E96660040A05D /* Build configuration list for PBXNativeTarget "AwesomeSwiftUI" */;
 			buildPhases = (
 				6FF08CF4A1892292AF35E24E /* [CP] Check Pods Manifest.lock */,
+				406E54B423907E8D0059E6C9 /* R.swift */,
 				40CBE39A238E96630040A05D /* Sources */,
 				409E2A5D238EBE0A00E92AAA /* Apollo CodeGen */,
 				40CBE39B238E96630040A05D /* Frameworks */,
@@ -423,6 +435,26 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		406E54B423907E8D0059E6C9 /* R.swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			name = R.swift;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/AwesomeSwiftUI/Generated/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/AwesomeSwiftUI/Generated/R.generated.swift\"\n";
+		};
 		409E2A5D238EBE0A00E92AAA /* Apollo CodeGen */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -508,6 +540,7 @@
 				406E54B3239063800059E6C9 /* Color.swift in Sources */,
 				403200E8238F16A200081E7F /* Types.graphql.swift in Sources */,
 				408CC1E9238FB44400F2C325 /* UIConstants.swift in Sources */,
+				406E54B723907F370059E6C9 /* R.generated.swift in Sources */,
 				408CC1E1238FAE5100F2C325 /* NavBarButtonStyle.swift in Sources */,
 				408CC1E3238FB3A800F2C325 /* TransactionListHeader.swift in Sources */,
 				40CBE3A6238E96630040A05D /* RootView.swift in Sources */,

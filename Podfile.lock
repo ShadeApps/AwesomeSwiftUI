@@ -7,29 +7,41 @@ PODS:
     - SQLite.swift (= 0.12.2)
   - Nimble (8.0.4)
   - Quick (2.2.0)
+  - R.swift (5.1.0):
+    - R.swift.Library (~> 5.1.0)
+  - R.swift.Library (5.1.0)
   - SQLite.swift (0.12.2):
     - SQLite.swift/standard (= 0.12.2)
   - SQLite.swift/standard (0.12.2)
+  - SwiftLint (0.37.0)
 
 DEPENDENCIES:
   - Apollo
   - Apollo/SQLite
   - Nimble
   - Quick
+  - R.swift
+  - SwiftLint
 
 SPEC REPOS:
   trunk:
     - Apollo
     - Nimble
     - Quick
+    - R.swift
+    - R.swift.Library
     - SQLite.swift
+    - SwiftLint
 
 SPEC CHECKSUMS:
   Apollo: 46b40c7023c1d49f2220a0364cdff8829674d9d3
   Nimble: 18d5360282923225d62b09d781f63abc1a0111fc
   Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
+  R.swift: 8cbc4fc69b740305b6a17c8a8ed968eb788962d9
+  R.swift.Library: fa85ce1e0d0b7e818cd9e080df910ba54d2776cc
   SQLite.swift: d2b4642190917051ce6bd1d49aab565fe794eea3
+  SwiftLint: c078a14d7d7ade75e5507795d185e3da41d844d2
 
-PODFILE CHECKSUM: 0d5f2d75173218e8ffa31f047519df4df0f846a7
+PODFILE CHECKSUM: b38940863448c27f7435d30f4353697c79361f32
 
 COCOAPODS: 1.8.4

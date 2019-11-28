@@ -7,6 +7,11 @@ def required_pods
     pod 'Apollo'
     pod 'Apollo/SQLite'
     
+    # code gen
+    pod 'R.swift'
+    
+    # linter
+    pod 'SwiftLint'
 end
 
 target 'AwesomeSwiftUI' do
