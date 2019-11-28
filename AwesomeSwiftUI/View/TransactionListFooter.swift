@@ -17,8 +17,8 @@ struct TransactionListFooter: View {
                 .fill(UIConstants.separatorColor.swiftColor)
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: UIConstants.footerHeight,
                        maxHeight: UIConstants.footerHeight, alignment: .center)
-        }.frame(minWidth: 0, maxWidth: .infinity, minHeight: UIConstants.headerHeight / 2,
-                maxHeight: .infinity, alignment: .center)
+        }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0,
+                maxHeight: UIConstants.headerHeight / 3, alignment: .center)
             .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
     }
     

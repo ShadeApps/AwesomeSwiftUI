@@ -15,3 +15,19 @@ struct HeaderTextStyle: ViewModifier {
             .foregroundColor(UIConstants.grayTextColor.swiftColor)
     }
 }
+
+struct DefaultTextStyle: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.system(size: UIConstants.headerTextSize, weight: .regular, design: .default))
+            .foregroundColor(UIConstants.defaultTextColor.swiftColor)
+    }
+}
+
+struct CashbackTextStyle: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.system(size: UIConstants.headerTextSize, weight: .regular, design: .default))
+            .foregroundColor(UIConstants.greenTextColor.swiftColor)
+    }
+}

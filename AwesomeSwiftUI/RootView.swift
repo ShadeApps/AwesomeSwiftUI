@@ -28,7 +28,7 @@ struct RootView: View {
     
     var body: some View {
         NavigationView {
-            if viewModel.days.count == 0 && viewModel.error.isNone {
+            if showLoader {
                 LoaderView()
             } else if viewModel.error.isSome {
                 errorView
@@ -58,7 +58,9 @@ struct RootView: View {
                 Section(header: TransactionListHeader(leftText: day.printableDate, rightText: day.printableAmount),
                         footer: TransactionListFooter()) {
                             ForEach(day.transactions ?? [], id: \.transactionObject.id) { transaction in
-                                Text("ID: \(transaction.transactionObject.id)")
+                                TransactionListRow(mainText: transaction.transactionObject.title,
+                                rightText: AmountHelper.stringFromAmount(transaction.transactionObject.amountObject),
+                                imageName: self.imageName(transaction), isCashback: self.isCashback(transaction))
                             }
                 }
             }
@@ -84,8 +86,29 @@ struct RootView: View {
         UIConstants.sortTransactionIconFilled : UIConstants.sortTransactionIcon)
     }
     
+    private var showLoader: Bool {
+        if isSortingByDate || isSortingByType {
+            return false
+        }
+        
+        return viewModel.days.count == 0 && viewModel.error.isNone
+    }
+    
     private func toggleSort(withDate: Bool) {
         HapticHelper.vibrateLightTap()
         withDate ? isSortingByDate.toggle() : isSortingByType.toggle()
     }
+    
+    private func isCashback(_ transaction: Transaction) -> Bool {
+        return transaction.transactionObject.type == .cashback
+    }
+    
+    private func imageName(_ transaction: Transaction) -> String {
+        var imageName = transaction.image?.iconName ?? ""
+        if isCashback(transaction) {
+            imageName = "cashback"
+        }
+        return imageName
+    }
+    
 }

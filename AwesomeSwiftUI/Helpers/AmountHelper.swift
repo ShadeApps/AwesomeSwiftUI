@@ -10,22 +10,37 @@ import Foundation
 
 struct AmountHelper {
     
-    static func stringFromAmount(_ amount: DaySection.AmountObject?) -> String {
-        guard let amount = amount else {
-            return ""
+    static func stringFromAmount(_ amount: Any?) -> String {
+        //TO DO: fix type ambiguity
+        if let amount = amount as? DaySection.AmountObject {
+            var finalString = amount.fragments.amount.value
+            let currency = printableCurrency(amount.fragments.amount.currencyCode)
+            
+            if finalString.contains("-") {
+                finalString = finalString
+                    .replacingOccurrences(of: "-", with: "-" + currency)
+            } else {
+                finalString = "+" + currency + finalString
+            }
+            
+            return finalString
         }
         
-        var finalString = amount.fragments.amount.value
-        let currency = printableCurrency(amount.fragments.amount.currencyCode)
-        
-        if finalString.contains("-") {
-            finalString = finalString
-                .replacingOccurrences(of: "-", with: "-" + currency)
-        } else {
-            finalString = "+" + currency + finalString
+        if let amount = amount as? Transaction.TransactionObject.AmountObject {
+            var finalString = amount.fragments.amount.value
+            let currency = printableCurrency(amount.fragments.amount.currencyCode)
+            
+            if finalString.contains("-") {
+                finalString = finalString
+                    .replacingOccurrences(of: "-", with: "-" + currency)
+            } else {
+                finalString = "+" + currency + finalString
+            }
+            
+            return finalString
         }
         
-        return finalString
+        return ""
     }
     
     private static func printableCurrency(_ currency: CurrencyCode) -> String {
