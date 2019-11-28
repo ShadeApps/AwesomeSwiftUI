@@ -15,6 +15,8 @@
 		403200E9238F16A200081E7F /* DaySection.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403200E4238F16A200081E7F /* DaySection.graphql.swift */; };
 		403200EA238F16A200081E7F /* TransactionList.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403200E5238F16A200081E7F /* TransactionList.graphql.swift */; };
 		406E54A623901EB00059E6C9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 406E54A523901EB00059E6C9 /* Localizable.strings */; };
+		406E54A8239026A60059E6C9 /* AmountHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406E54A7239026A60059E6C9 /* AmountHelper.swift */; };
+		406E54AB2390494B0059E6C9 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406E54AA2390494B0059E6C9 /* TextStyle.swift */; };
 		408CC1E1238FAE5100F2C325 /* NavBarButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408CC1E0238FAE5100F2C325 /* NavBarButtonStyle.swift */; };
 		408CC1E3238FB3A800F2C325 /* TransactionListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408CC1E2238FB3A800F2C325 /* TransactionListHeader.swift */; };
 		408CC1E5238FB3B800F2C325 /* TransactionListFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408CC1E4238FB3B800F2C325 /* TransactionListFooter.swift */; };
@@ -55,6 +57,8 @@
 		403200E4238F16A200081E7F /* DaySection.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DaySection.graphql.swift; sourceTree = "<group>"; };
 		403200E5238F16A200081E7F /* TransactionList.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionList.graphql.swift; sourceTree = "<group>"; };
 		406E54A523901EB00059E6C9 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		406E54A7239026A60059E6C9 /* AmountHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountHelper.swift; sourceTree = "<group>"; };
+		406E54AA2390494B0059E6C9 /* TextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
 		408CC1E0238FAE5100F2C325 /* NavBarButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarButtonStyle.swift; sourceTree = "<group>"; };
 		408CC1E2238FB3A800F2C325 /* TransactionListHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListHeader.swift; sourceTree = "<group>"; };
 		408CC1E4238FB3B800F2C325 /* TransactionListFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListFooter.swift; sourceTree = "<group>"; };
@@ -119,7 +123,7 @@
 		403200BB238EDAD000081E7F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				408CC1E0238FAE5100F2C325 /* NavBarButtonStyle.swift */,
+				406E54A92390493A0059E6C9 /* Styles */,
 				408CC1E2238FB3A800F2C325 /* TransactionListHeader.swift */,
 				408CC1E4238FB3B800F2C325 /* TransactionListFooter.swift */,
 				408CC1E6238FB3C900F2C325 /* TransactionListRow.swift */,
@@ -145,10 +149,20 @@
 			path = Localization;
 			sourceTree = "<group>";
 		};
+		406E54A92390493A0059E6C9 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				408CC1E0238FAE5100F2C325 /* NavBarButtonStyle.swift */,
+				406E54AA2390494B0059E6C9 /* TextStyle.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
 		408CC1EA238FD3C300F2C325 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				408CC1EB238FD3D400F2C325 /* DateFormatterHelper.swift */,
+				406E54A7239026A60059E6C9 /* AmountHelper.swift */,
 				408CC1ED238FD45800F2C325 /* HapticHelper.swift */,
 			);
 			path = Helpers;
@@ -472,7 +486,9 @@
 				409E2A68238ECA8500E92AAA /* TransactionProvider.swift in Sources */,
 				408CC1E5238FB3B800F2C325 /* TransactionListFooter.swift in Sources */,
 				40CBE3A4238E96630040A05D /* SceneDelegate.swift in Sources */,
+				406E54A8239026A60059E6C9 /* AmountHelper.swift in Sources */,
 				408CC1EE238FD45800F2C325 /* HapticHelper.swift in Sources */,
+				406E54AB2390494B0059E6C9 /* TextStyle.swift in Sources */,
 				408CC1E7238FB3C900F2C325 /* TransactionListRow.swift in Sources */,
 				403200E8238F16A200081E7F /* Types.graphql.swift in Sources */,
 				408CC1E9238FB44400F2C325 /* UIConstants.swift in Sources */,

@@ -23,7 +23,7 @@ struct RootView: View {
     }
     
     init() {
-        styleNavigationBar()
+        applyAppearanceStyles()
     }
     
     var body: some View {
@@ -55,7 +55,7 @@ struct RootView: View {
                     }
                 }
             }
-        }
+        }.background(Color.white)
     }
     
     private var dateSortIcon: Image {

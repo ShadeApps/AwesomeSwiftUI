@@ -17,10 +17,14 @@ enum UIConstants {
     
     static let dateFormatterInput = "YYYY-MM-dd"
     static let dateFormatterOutput = "MMMM, d"
+    
+    static let headerHeight = CGFloat(50)
+    static let headerInset = CGFloat(25)
 }
 
-func styleNavigationBar() {
+func applyAppearanceStyles() {
     UINavigationBar.appearance().shadowImage = UIImage()
     UINavigationBar.appearance().backgroundColor = .white
     UINavigationBar.appearance().barTintColor = .white
+    UITableViewHeaderFooterView.appearance().tintColor = .white
 }

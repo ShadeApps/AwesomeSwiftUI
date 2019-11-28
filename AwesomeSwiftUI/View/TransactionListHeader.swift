@@ -14,7 +14,14 @@ struct TransactionListHeader: View {
     var rightText = ""
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            Text(leftText).modifier(HeaderTextStyle())
+            Spacer()
+            Text(rightText)
+        }
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: UIConstants.headerHeight, maxHeight: .infinity, alignment: .center)
+        .background(Color.white)
+        .listRowInsets(EdgeInsets(top: 0, leading: UIConstants.headerInset, bottom: 0, trailing: UIConstants.headerInset))
     }
 }
 

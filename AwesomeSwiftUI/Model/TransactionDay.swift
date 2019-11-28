@@ -21,6 +21,6 @@ struct TransactionDay {
     }
     
     var printableAmount: String {
-        return ""
+        return AmountHelper.stringFromAmount(amount)
     }
 }
