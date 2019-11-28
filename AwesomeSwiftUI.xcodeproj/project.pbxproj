@@ -17,6 +17,9 @@
 		406E54A623901EB00059E6C9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 406E54A523901EB00059E6C9 /* Localizable.strings */; };
 		406E54A8239026A60059E6C9 /* AmountHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406E54A7239026A60059E6C9 /* AmountHelper.swift */; };
 		406E54AB2390494B0059E6C9 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406E54AA2390494B0059E6C9 /* TextStyle.swift */; };
+		406E54AD23904CCF0059E6C9 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406E54AC23904CCF0059E6C9 /* LoaderView.swift */; };
+		406E54AF23904D4D0059E6C9 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406E54AE23904D4D0059E6C9 /* ActivityIndicator.swift */; };
+		406E54B1239058710059E6C9 /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406E54B0239058710059E6C9 /* Optional.swift */; };
 		408CC1E1238FAE5100F2C325 /* NavBarButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408CC1E0238FAE5100F2C325 /* NavBarButtonStyle.swift */; };
 		408CC1E3238FB3A800F2C325 /* TransactionListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408CC1E2238FB3A800F2C325 /* TransactionListHeader.swift */; };
 		408CC1E5238FB3B800F2C325 /* TransactionListFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408CC1E4238FB3B800F2C325 /* TransactionListFooter.swift */; };
@@ -59,6 +62,9 @@
 		406E54A523901EB00059E6C9 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		406E54A7239026A60059E6C9 /* AmountHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountHelper.swift; sourceTree = "<group>"; };
 		406E54AA2390494B0059E6C9 /* TextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
+		406E54AC23904CCF0059E6C9 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
+		406E54AE23904D4D0059E6C9 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		406E54B0239058710059E6C9 /* Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
 		408CC1E0238FAE5100F2C325 /* NavBarButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarButtonStyle.swift; sourceTree = "<group>"; };
 		408CC1E2238FB3A800F2C325 /* TransactionListHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListHeader.swift; sourceTree = "<group>"; };
 		408CC1E4238FB3B800F2C325 /* TransactionListFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListFooter.swift; sourceTree = "<group>"; };
@@ -127,6 +133,8 @@
 				408CC1E2238FB3A800F2C325 /* TransactionListHeader.swift */,
 				408CC1E4238FB3B800F2C325 /* TransactionListFooter.swift */,
 				408CC1E6238FB3C900F2C325 /* TransactionListRow.swift */,
+				406E54AC23904CCF0059E6C9 /* LoaderView.swift */,
+				406E54AE23904D4D0059E6C9 /* ActivityIndicator.swift */,
 				408CC1E8238FB44400F2C325 /* UIConstants.swift */,
 			);
 			path = View;
@@ -164,6 +172,7 @@
 				408CC1EB238FD3D400F2C325 /* DateFormatterHelper.swift */,
 				406E54A7239026A60059E6C9 /* AmountHelper.swift */,
 				408CC1ED238FD45800F2C325 /* HapticHelper.swift */,
+				406E54B0239058710059E6C9 /* Optional.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -478,13 +487,16 @@
 			files = (
 				403200E7238F16A200081E7F /* Amount.graphql.swift in Sources */,
 				40CBE3A2238E96630040A05D /* AppDelegate.swift in Sources */,
+				406E54AD23904CCF0059E6C9 /* LoaderView.swift in Sources */,
 				403200E6238F16A200081E7F /* Transaction.graphql.swift in Sources */,
+				406E54AF23904D4D0059E6C9 /* ActivityIndicator.swift in Sources */,
 				409E2A6D238ED1C200E92AAA /* NetworkLogger.swift in Sources */,
 				403200BD238EF65900081E7F /* TransactionDay.swift in Sources */,
 				408CC1EC238FD3D400F2C325 /* DateFormatterHelper.swift in Sources */,
 				409E2A6B238ECB0800E92AAA /* NetworkClient.swift in Sources */,
 				409E2A68238ECA8500E92AAA /* TransactionProvider.swift in Sources */,
 				408CC1E5238FB3B800F2C325 /* TransactionListFooter.swift in Sources */,
+				406E54B1239058710059E6C9 /* Optional.swift in Sources */,
 				40CBE3A4238E96630040A05D /* SceneDelegate.swift in Sources */,
 				406E54A8239026A60059E6C9 /* AmountHelper.swift in Sources */,
 				408CC1EE238FD45800F2C325 /* HapticHelper.swift in Sources */,
@@ -651,6 +663,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 26X9MMPTBH;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = AwesomeSwiftUI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -671,6 +684,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 26X9MMPTBH;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = AwesomeSwiftUI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

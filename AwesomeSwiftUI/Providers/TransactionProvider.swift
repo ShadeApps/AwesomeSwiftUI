@@ -32,6 +32,7 @@ final class TransactionProvider: NSObject {
                     self.dataPublisher.send(completion: Subscribers.Completion.failure(firstError))
                 }
             case .failure(let error):
+                NetworkLogger.log(.error, "getTransactions error")
                 self.dataPublisher.send(completion: Subscribers.Completion.failure(error))
             }
         }

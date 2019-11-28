@@ -18,7 +18,7 @@ enum UIConstants {
     static let dateFormatterInput = "YYYY-MM-dd"
     static let dateFormatterOutput = "MMMM, d"
     
-    static let headerHeight = CGFloat(50)
+    static let headerHeight = CGFloat(60)
     static let headerInset = CGFloat(25)
 }
 

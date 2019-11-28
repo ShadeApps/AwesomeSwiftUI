@@ -28,7 +28,12 @@ struct RootView: View {
     
     var body: some View {
         NavigationView {
-            list.navigationBarTitle("RootViewTitle", displayMode: .inline)
+            if viewModel.days.count == 0 && viewModel.error.isNone {
+                LoaderView()
+            } else if viewModel.error.isSome {
+                errorView
+            } else {
+                list.navigationBarTitle("RootViewTitle", displayMode: .inline)
                 .navigationBarItems(leading:
                     Button(action: {
                         self.toggleSort(withDate: true)
@@ -41,6 +46,7 @@ struct RootView: View {
                     }, label: {
                         typeSortIcon
                     }).modifier(NavBarButtonStyle()))
+            }
         }.onAppear {
             self.viewModel.refresh()
         }
@@ -56,6 +62,15 @@ struct RootView: View {
                 }
             }
         }.background(Color.white)
+    }
+    
+    private var errorView: some View {
+        return VStack {
+            Text("ErrorText").modifier(HeaderTextStyle()).padding()
+            Button("ErrorButton") {
+                self.viewModel.refresh()
+            }
+        }
     }
     
     private var dateSortIcon: Image {

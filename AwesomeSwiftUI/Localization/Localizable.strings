@@ -7,3 +7,6 @@
 */
 
 "RootViewTitle" = "Transactions";
+"LoadingTitle" = "Loading...";
+"ErrorText" = "Something went wrong";
+"ErrorButton" = "Try again";

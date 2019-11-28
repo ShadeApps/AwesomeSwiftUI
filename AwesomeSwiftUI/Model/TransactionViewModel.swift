@@ -9,6 +9,10 @@
 import Foundation
 import Combine
 
+enum TransactionViewModelError : Error {
+    case unknown
+}
+
 final class TransactionViewModel : ObservableObject {
     
     enum TransactionViewModelSortType {
@@ -32,19 +36,27 @@ final class TransactionViewModel : ObservableObject {
             didChange.send(self)
         }
     }
+    @Published private(set) var error :Error?
 
     func refresh() {
-        dataProvider.getTransactions()
-        let dataSubscriber = dataProvider
-            .publisher
-            .receive(on: RunLoop.main)
-            .sink(receiveCompletion: { (error) in
-                self.didChange.send(completion: error)
-            }) { (values) in
-                self.days = values
-                self.unsortedDays = values
+        error = nil
+        
+        //Delay solely for aesthetic purposes
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.dataProvider.getTransactions()
+            let dataSubscriber = self.dataProvider
+                .publisher
+                .receive(on: RunLoop.main)
+                .sink(receiveCompletion: { (error) in
+                    self.error = TransactionViewModelError.unknown
+                    self.didChange.send(completion: error)
+                }) { (values) in
+                    self.error = nil
+                    self.days = values
+                    self.unsortedDays = values
+            }
+            self.transactionSubscriber = AnyCancellable(dataSubscriber)
         }
-        transactionSubscriber = AnyCancellable(dataSubscriber)
     }
     
     func sortInPlace(_ type: TransactionViewModelSortType) {
@@ -71,7 +83,7 @@ final class TransactionViewModel : ObservableObject {
                 let tmpDays = newDays
                 newDays = [TransactionDay]()
                 
-                for var object in tmpDays where object.transactions != nil  {
+                for var object in tmpDays where object.transactions.isSome  {
                     object.transactions = object.transactions!.filter({ $0.transactionObject.type == .cashback })
                     if object.transactions?.count != 0 {
                         newDays.append(object)
