@@ -10,7 +10,8 @@ import SwiftUI
 
 struct TransactionListHeader: View {
     
-    var title = ""
+    var leftText = ""
+    var rightText = ""
     
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)

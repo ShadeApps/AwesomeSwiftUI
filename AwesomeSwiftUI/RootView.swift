@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  RootView.swift
 //  AwesomeSwiftUI
 //
 //  Created by Sergey Grischyov on 27.11.2019.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct RootView: View {
     
     @ObservedObject var viewModel = TransactionViewModel()
     @State private var isSortingByDate = false {
@@ -22,9 +22,13 @@ struct ContentView: View {
         }
     }
     
+    init() {
+        styleNavigationBar()
+    }
+    
     var body: some View {
         NavigationView {
-            list.navigationBarTitle("", displayMode: .inline)
+            list.navigationBarTitle("RootViewTitle", displayMode: .inline)
                 .navigationBarItems(leading:
                     Button(action: {
                         self.toggleSort(withDate: true)
@@ -45,7 +49,7 @@ struct ContentView: View {
     private var list: some View {
         return List {
             ForEach(viewModel.days, id: \.date) { day in
-                Section(header: Text("\(day.printableDate)"), footer: Text("Meh")) {
+                Section(header: TransactionListHeader(leftText: day.printableDate, rightText: day.printableAmount), footer: Text("Meh")) {
                     ForEach(day.transactions ?? [], id: \.transactionObject.id) { transaction in
                         Text("ID: \(transaction.transactionObject.id)")
                     }
@@ -73,7 +77,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     
     static var previews: some View {
-        ContentView()
+        RootView()
     }
     
 }

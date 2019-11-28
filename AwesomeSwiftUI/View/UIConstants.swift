@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum UIConstants {
     static let sortCalendarIcon = "calendar"
@@ -16,4 +17,10 @@ enum UIConstants {
     
     static let dateFormatterInput = "YYYY-MM-dd"
     static let dateFormatterOutput = "MMMM, d"
+}
+
+func styleNavigationBar() {
+    UINavigationBar.appearance().shadowImage = UIImage()
+    UINavigationBar.appearance().backgroundColor = .white
+    UINavigationBar.appearance().barTintColor = .white
 }
