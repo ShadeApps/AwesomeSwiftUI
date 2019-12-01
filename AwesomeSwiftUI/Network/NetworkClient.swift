@@ -31,8 +31,8 @@ class NetworkClient {
     }()
 
     private var dbURL: URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let dbPath = paths[0].absoluteString + Constants.dbPath
+        let rootPath = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true).first!
+        let dbPath = rootPath + Constants.dbPath
 
         if !FileManager.default.fileExists(atPath: dbPath) {
             try? FileManager.default.createDirectory(atPath:

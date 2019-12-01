@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Apollo
 import Combine
 
 final class TransactionProvider: NSObject {
@@ -21,8 +22,8 @@ final class TransactionProvider: NSObject {
         super.init()
     }
 
-    func getTransactions() {
-        NetworkClient.shared.apollo.fetch(query: TransactionListQuery(), cachePolicy: .returnCacheDataAndFetch) { result in
+    func getTransactions(withCachePolicy policy: CachePolicy = .returnCacheDataElseFetch) {
+        NetworkClient.shared.apollo.fetch(query: TransactionListQuery(), cachePolicy: policy) { result in
             switch result {
             case .success(let graphQLResult):
                 if let data = try? result.get().data,

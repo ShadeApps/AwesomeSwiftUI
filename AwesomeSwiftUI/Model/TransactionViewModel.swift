@@ -25,7 +25,7 @@ final class TransactionViewModel: ObservableObject {
         case typeCashback
     }
 
-    private let dataProvider = TransactionProvider()
+    private var dataProvider: TransactionProvider?
     private var transactionSubscriber: AnyCancellable?
     var didChange = PassthroughSubject<TransactionViewModel, Error>()
 
@@ -45,13 +45,13 @@ final class TransactionViewModel: ObservableObject {
 
         //Delay solely for aesthetic purposes
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.dataProvider.getTransactions()
-            let dataSubscriber = self.dataProvider
+            self.dataProvider = TransactionProvider()
+            self.dataProvider?.getTransactions()
+            let dataSubscriber = self.dataProvider!
                 .publisher
                 .receive(on: RunLoop.main)
                 .sink(receiveCompletion: { (error) in
                     self.error = TransactionViewModelError.unknown
-                    self.didChange.send(completion: error)
                 }) { (values) in
                     self.error = nil
                     self.days = values
